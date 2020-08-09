@@ -5,7 +5,22 @@ const Schema = mongoose.Schema;
 // Create schema
 const transactionSchema = new Schema(
  
-  // Input key value pairs
+
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: "Enter a name for transaction"
+    },
+    value: {
+      type: Number,
+      required: "Enter an amount"
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    }
+  }
 );
 
 const Transaction = mongoose.model("Transaction", transactionSchema);
